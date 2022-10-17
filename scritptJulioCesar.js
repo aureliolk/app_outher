@@ -11,7 +11,7 @@ const allDown = ()=>{
     allImgs.forEach((item,i) => {
         console.log(item)
         setTimeout(() => {
-            fetch(item.attributes[3].value)
+            fetch(item.getAttribute("src"))
                 .then(resp => resp.blob())
                 .then(blob => {
                     const url = window.URL.createObjectURL(blob);
@@ -28,4 +28,8 @@ const allDown = ()=>{
         }, i * 1000);
     })
 }
+
+
+
+
 
