@@ -1,4 +1,10 @@
-document.querySelector('[data-id="4c5c106"] a').insertAdjacentHTML("afterend","<button id='allDownload' onClick='allDown()' >Download</button>")
+
+const getButton = document.querySelector("#allDown")
+if(getButton){
+    getButton.addEventListener("click",()=>{
+        allDown()
+    })
+}
 
 const allDown = ()=>{
     var allImgs = document.querySelectorAll('[data-id="abe2a49"] img');
