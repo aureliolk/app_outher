@@ -7,7 +7,7 @@ if(getButton){
 }
 
 const allDown = ()=>{
-    var allImgs = document.querySelectorAll('[data-id="abe2a49"] img');
+    var allImgs = document.querySelectorAll('div#slider img');
     allImgs.forEach((item,i) => {
         console.log(item)
         setTimeout(() => {
