@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+</body>
+
+<style>
+    .cookies{
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+</style>
+
+<script>
+
+    const divCookies = document.createElement("div")
+    divCookies.innerHTML = `
+    <div class="cookies">
+        <p> Usamos cookies para aprimorar sua experiência de navegação, veicular anúncios ou conteúdo personalizado e
+            analisar nosso tráfego. Ao clicar em "Aceitar tudo", você concorda com o uso de cookies.</p>
+        <button id="bt_pulse" class="confirm" >Aceito</button>
+    </div>
+    ` 
+    divCookies.style.fontFamily ="Oswald"
+    document.body.append(divCookies)
+    if(!checkCookie("cookies")){
+        const btConfirm = document.querySelector(".confirm")
+        console.log("Não tem cookies")
+        btConfirm.onclick = ()=>{
+            document.cookie = "cookies = true"
+            divCookies.style.display = "none"           
+        }
+    }else if(divCookies){
+        divCookies.style.display = "none"           
+    }
+
+    function checkCookie(name) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.indexOf(name) == 0) {
+                return cookie.substring(name.length + 1, cookie.length);
+            }
+        }
+        return null;
+    }
+</script>
+
+</html>

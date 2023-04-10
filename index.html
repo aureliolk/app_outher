@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="caixa"></div>
+
+        <button class="bt">Clique aqui</button>
+
+    </div>
+</body>
+
+</html>
+
+<style>
+    body {
+        background: #000;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 10rem;
+    }
+
+    .caixa {
+        width: 400px;
+        height: 400px;
+        background: transparent;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bt{
+        width: 200px;
+        padding: 0.8rem;
+        background: #FCBE07;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        text-transform: uppercase;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bt::before, .bt::after{
+        width: calc(100% + 7px);
+        height: calc(100% + 7px);
+        position: absolute;
+        content: "";
+        z-index: -1;
+        border-radius: 20px;
+        background: linear-gradient(45deg, #ffff00, #00ff00, #0099ff, #001aff, #0200ff, #ff0055, #ff0000, #ffff00, #00ff00, #0099ff, #001aff, #0200ff);
+        background-size: 300px;
+        animation: borderanimation 1s linear alternate infinite;
+
+    }
+
+    .bt::after{
+        filter: blur(50px);
+    }
+
+    @keyframes borderanimation{
+        0%{
+            background-position: 0;
+        }
+        100%{
+            background-position: 300%;
+        }
+    }
+
+
+    .caixa::before,
+    .caixa::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+        background: linear-gradient(45deg, #ffff00, #00ff00, #0099ff, #001aff, #0200ff, #ff0055, #ff0000, #ffff00, #00ff00, #0099ff, #001aff, #0200ff);
+        background-size: 300%;
+        border-radius: 5px;
+        ;
+        animation: borderanimation 8s linear alternate infinite;
+    }
+
+    .caixa::after {
+        filter: blur(50px);
+    }
+</style>
